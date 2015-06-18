@@ -1,0 +1,35 @@
+#!/bin/sh
+
+name=class_`date +%Y%m%d%H%M%S%N`
+file=/tmp/$name.java
+
+echo creating file $file ...
+echo "" > $file
+echo "import java.util.*;" >> $file
+echo "import java.io.*;" >> $file
+echo "import java.sql.*;" >> $file
+echo "import java.text.SimpleDateFormat;" >> $file
+echo "import java.lang.reflect.Array;" >> $file
+echo "" >> $file
+echo "public class $name {" >> $file
+echo '   public static String mimetypesFile = "/etc/mime.types";' >> $file
+echo -n "// " >> $file
+cat ../lib/functions.jsp | replace "%>" "" >> $file
+echo "" >> $file
+echo -n "// " >> $file
+cat ../lib/parser.jsp | replace "%>" "" >> $file
+echo "" >> $file
+echo "   public static void main(String args[]) {" >> $file
+echo "      Object result = new $name().text_session(System.in, System.out, null);" >> $file
+echo "      if (result instanceof Exception) ((Exception)result).printStackTrace();" >> $file
+echo "   }" >> $file
+echo "}" >> $file
+echo "" >> $file
+
+CP=./
+for x in ../WEB-INF/lib/*.jar; do CP=$CP:$x; done
+javac -cp $CP $file
+java -cp /tmp:$CP $name
+
+
+

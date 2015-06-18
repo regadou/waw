@@ -1,0 +1,15 @@
+#!/usr/bin/tea
+
+fs = require("fs");
+eval(read("../lib/functions.sjs"));
+eval(read("../lib/parser.sjs"));
+text_session(system.stdin, system.stdout);
+
+function read(path) {
+   var file = new fs.File(path);
+   file.open("r");
+   var txt = file.read().toString("UTF-8");
+   file.close();
+   return txt;
+}
+

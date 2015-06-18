@@ -1,0 +1,19 @@
+#!/usr/bin/php
+<?php
+
+$basepath = "";
+$mimetypesFile = "/etc/mime.types";
+$queryVerbs = array("select", "show", "pragma");
+$db = null;
+$mimetypes = null;
+$result = null;
+
+try {
+   require_once("../lib/functions.php");
+   require_once("../lib/parser.php");
+   text_session(fopen('php://stdin', 'r'), fopen('php://stdout', 'w'), null);
+} catch (Exception $e) {
+   echo $e->getMessage() . "\n";
+}
+
+?>

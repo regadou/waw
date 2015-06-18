@@ -1,0 +1,54 @@
+{
+   "system": {
+      "status": {
+         "version": "0.1",
+         "quality": "alpha",
+         "security": "none"
+      },
+      "bugs": [
+         "repair multimedia playing (audio, video)",
+         "be able to save properly new events",
+         "make th web site builder work properly",
+         "not sure if the delete button (table record) works properly"
+      ],
+      "todo": [
+         "database table edit form",
+         "database sql query form",
+         "database relations for select choices",
+         "file edit, create, delete, upload, download",
+         "support 3D model files viewing (convert to json)",
+         "zip and unzip remote folders",
+         "manage remote email account (IMAP)",
+         "support html templates (jade, ejs, custom)",
+         "be able to edit and save config tree"
+      ],
+      "supported": ["aspx", "jsp", "php", "sjs"]
+   },
+   "database": {
+      "mysql": { 
+         "user": "root", 
+         "password": ""
+      },
+      "pg": {
+         "user": "postgres",
+         "password": "postgres"
+      },
+      "pgsql": {
+         "user": "postgres",
+         "password": "postgres"
+      },
+      "postgresql": {
+         "user": "postgres",
+         "password": "postgres"
+      },
+      "sqlite": {
+         "folder": "/var/www/data"
+      },
+      "limit": 100
+   },
+   "agendas": [
+      {"name":"Mon agenda", "table":"mysql#ets#agenda"}
+   ]
+}
+
+
